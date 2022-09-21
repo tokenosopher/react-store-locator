@@ -1,6 +1,6 @@
 import algoliaSearch from "algoliasearch";
 
-const indexName = 'twitch-livecoding'
+const indexName = 'tutorial-store-locator'
 
 const searchClient = algoliaSearch(
   process.env.REACT_APP_ALGOLIA_APP_ID as string,

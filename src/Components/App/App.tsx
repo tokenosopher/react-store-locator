@@ -8,17 +8,82 @@ import StoreComponent from "../StoreComponent/StoreComponent";
 import Header from "../Header/Header";
 import Map from "../Map/Map"
 import {LngLat} from "../../types/LngLat";
+import Autocomplete from "../Autocomplete/Autocomplete";
+import {
+    useCallback, useMemo
+} from 'react';
+import {Hit} from '../../Interfaces';
 
+const countries = ['GB']
 
 function App() {
 
+    const [searchState, setSearchState] = useState<Record<string, any>>({});
+    const [currentStoreCoordinates, setCurrentStoreCoordinates] = useState<[number, number] | null>(null)
+    const [currentStoreName, setCurrentStoreName] = useState<string | null>(null)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [selectedContent, setSelectedContent] = useState<'map' | 'list'>('list')
   const [currentStore, setCurrentStore] = useState<GeoHit | null>(null)
+
+    const onSubmit = useCallback(({state}) => {
+        setSearchState((searchState) => ({
+            ...searchState,
+            query: state.query
+        }))
+    },[])
+
+    const plugins = useMemo(() => {
+      const mapboxGeocodingPlugin = createMapboxGeocodingPlugin(
+          {
+          fuzzyMath: true,
+          autocomplete: true,
+          types: ['country', 'place', 'poi'],
+          country: countries,
+          access_token: process.env.REACT_APP_MAPBOX_TOKEN,
+          })
+    }, [])
+
+
+    const querySuggestionPlugin = createSuggestionsPlugin({
+        searchClient,
+        indexName as string,
+    (query) => {
+            setSearchState((searchState) => ({
+                ...searchState,
+                query: query,
+            }));
+    },
+    (item) => console.log(item),
+        SuggestionComponent
+    )
+    return [mapboxGeocodingPlugin, querySuggestionPlugin];
+}, [])
+
+    const handleClick= (hit: Hit) => {
+      // 1. Move map
+        const {lat, lng} = hit._geoloc
+        const coordinates: [number, number] = [lng, lat]
+        setCurrentStoreCoordinates(coordinates)
+        setCurrentStoreName(hit.name)
+        setIsOpen(true)
+    }
 
 
   return (
     <div className="flex w-full h-full flex-col">
 
       <Header/>
+        <Autocomplete
+            initialState={{
+                query: searchState.query,
+            }}
+            placeholder={"Enter address, zip code or store name"}
+            openOnFocus={true}
+            onStateChange={onSubmit}
+            onSubmit={onSubmit}
+            onReset={onReset}
+            plugins={plugins}
+         />
 
       <InstantSearch searchClient={searchClient} indexName={indexName}>
         <Configure
