@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Map } from 'mapbox-gl';
+import {LngLat} from "../../types/LngLat";
 
 const ReactMap = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPBOX_TOKEN as string,
 });
 
+interface MapState {
+    lat: number,
+    lng: number,
+    zoom: number,
+}
+
+interface MapProps {
+    currentStore: LngLat;
+    onClickMarker: (marker: any) => void;
+}
 
 
 

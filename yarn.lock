@@ -2041,10 +2041,10 @@
     "@types/react" "*"
     "@types/react-instantsearch-core" "*"
 
-"@types/react-instantsearch@^6.10.0":
-  version "6.10.0"
-  resolved "https://registry.yarnpkg.com/@types/react-instantsearch/-/react-instantsearch-6.10.0.tgz#0d03239a45cdd0fb715193f55580a08aba452623"
-  integrity sha512-OaUNrB1KpsBnGyfIbuVLE6STj2adU3QCmClyIxRV+jiAT3OhKtXQbDfFNaF4Csv+OqrWsY+DW49Bppo4F6iiAw==
+"@types/react-instantsearch@^6.10.1":
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/@types/react-instantsearch/-/react-instantsearch-6.10.1.tgz#f00a2ccf604f642c2fe5043da631be74597e7dd2"
+  integrity sha512-A4DxarhuCjiwq+BA2tFh7zqmwU6WRt1TyIpi44OR6bRjWffZ2ApvP9nx/PEY+bcX5GKm2NOazKtt4my5G7xZ7A==
   dependencies:
     "@types/react-instantsearch-core" "*"
     "@types/react-instantsearch-dom" "*"
@@ -2520,7 +2520,7 @@ algoliasearch-helper@>=3, algoliasearch-helper@^3.4.3, algoliasearch-helper@^3.4
   dependencies:
     events "^1.1.1"
 
-algoliasearch@>=4, algoliasearch@^4.10.2:
+algoliasearch@4.10.2, algoliasearch@>=4:
   version "4.10.2"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-4.10.2.tgz#23e88c71cb381d5b59430baa5d417186cc8ff683"
   integrity sha512-BAYCe97XRfO15irJKBRjBnrp9tSqN0jppklLIXKdtUcXlibcPQtuAeGUP2cPiz6bJd3ISuoYzLFNt4/fQYtLMw==
@@ -6396,7 +6396,7 @@ ini@^1.3.5, ini@~1.3.0:
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
-instantsearch.js@^4.24.2:
+instantsearch.js@4.24.2:
   version "4.24.2"
   resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.24.2.tgz#44da291595940b46dda94941a6a5f2f16585e231"
   integrity sha512-mrAuBooLE8sQR3SlLHPF6Y9d7as+8R+aQvZmtEpz257bIr6HuanIdtYI0oQ7LSyHGYj2aiOmxiUSWdZZi6mblA==
@@ -9955,7 +9955,7 @@ react-instantsearch-core@^6.11.2:
     prop-types "^15.6.2"
     react-fast-compare "^3.0.0"
 
-react-instantsearch-dom@^6.11.2:
+react-instantsearch-dom@6.11.2:
   version "6.11.2"
   resolved "https://registry.yarnpkg.com/react-instantsearch-dom/-/react-instantsearch-dom-6.11.2.tgz#048e8934dfac472eb59a16fa0125fda0669334c6"
   integrity sha512-n6d0E9rreGHIo88OuWHagabAwS9/6NQ/vxRivi0n1Zfqhkaota6QTh83Ay2HIBnio1kRuJgqJhLpO+85R4vzvQ==
